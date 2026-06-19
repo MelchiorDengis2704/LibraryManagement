@@ -9,20 +9,31 @@ public class Client {
 
 
 
+    public Client(String firstName, String lastName, String phoneNumber){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
 
-    public String getfirstName(){return this.firstName;}
+    public String getfirstName(){
+        return this.firstName;
+    }
 
-    public String getLastname(){return this.lastName;}
+    public String getLastname(){
+        return this.lastName;
+    }
 
-    public String getPhoneNumber(){return this.phoneNumber;}
+    public String getPhoneNumber(){
+        return this.phoneNumber;
+    }
 
 
     @Override
     public String toString() {
         return
-                "Client informations : " + "\n" +
-                "firstName = " + firstName + "\n" +
-                "lastName = " + lastName + "\n" +
-                "phoneNumber = " + phoneNumber + "\n";
+                "Client information" + "\n" +
+                "firstName : " + firstName + "\n" +
+                "lastName : " + lastName + "\n" +
+                "phoneNumber : " + phoneNumber + "\n";
     }
 }
