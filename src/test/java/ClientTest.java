@@ -1,49 +1,63 @@
 import be.melchior.library.model.Client;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class ClientTest {
 
-    private Client client;
-
-    @BeforeEach
-    public void createClient(){
-        client = new Client("Melchior", "Dengis", "0493911842");
-    }
-
 
     @Test
-    public void clientShouldHaveAFirstName(){
-        assertEquals("Melchior", client.getFirstName());
+    public void shouldRejectEmptyFirstName() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Client("", "Dengis", "0493911842")
+        );
     }
 
     @Test
-    public void clientShouldHaveALastName(){
-        assertEquals("Dengis", client.getLastName());
+    public void shouldRejectEmptyLastName() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Client("Melchior", "", "0493911842")
+        );
     }
 
     @Test
-    public void clientShouldHaveAPhoneNumber(){
-        assertEquals("0493911842", client.getPhoneNumber());
+    public void shouldRejectEmptyPhoneNumber() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Client("Melchior", "Dengis", "")
+        );
     }
 
     @Test
-    public void clientFirstNameShouldChange(){
-        client.setFirstName("Thomas");
-        assertEquals("Thomas", client.getFirstName());
+    public void shouldRejectNullFirstName() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Client(null, "Dengis", "0493911842")
+        );
     }
 
     @Test
-    public void clientLastNameShouldChange(){
-        client.setLastName("Dangis");
-        assertEquals("Dangis", client.getLastName());
+    public void shouldRejectNullLastName() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Client("Melchior", null, "0493911842")
+        );
     }
 
     @Test
-    public void clientPhoneNumberShouldChange(){
-        client.setPhoneNumber("0492981850");
-        assertEquals("0492981850", client.getPhoneNumber());
+    public void shouldRejectNullPhoneNumber() {
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> new Client("Melchior", "Dengis", null)
+        );
     }
+
 }
