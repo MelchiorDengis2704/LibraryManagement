@@ -9,6 +9,9 @@ public class Book {
         if(title == null || title.isEmpty()){
             throw new IllegalArgumentException("The book can't have a empty title ");
         }
+        if(category == null){
+            throw new IllegalArgumentException("The book can't have a category field empty");
+        }
         this.title = title;
         this.category = category;
     }
