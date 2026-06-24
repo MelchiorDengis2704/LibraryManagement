@@ -22,5 +22,10 @@ public class Book {
         return this.category;
     }
 
-
+    @Override
+    public String toString() {
+        return
+                        "Book title : " + this.title + "\n" +
+                        "Book category : " + this.getCategory().getName() + "\n";
+    }
 }

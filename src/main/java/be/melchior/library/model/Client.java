@@ -10,9 +10,15 @@ public class Client {
 
 
     public Client(String firstName, String lastName, String phoneNumber){
-        validate(firstName, "first name");
-        validate(lastName, "last name");
-        validate(phoneNumber, "phone number");
+        if(firstName == null || firstName.isEmpty()){
+            throw new IllegalArgumentException("The first name of a client can't be null or empty ");
+        }
+        if(lastName == null || lastName.isEmpty()){
+            throw new IllegalArgumentException("The last name of a client can't be null or empty ");
+        }
+        if(phoneNumber == null || phoneNumber.isEmpty()){
+            throw new IllegalArgumentException("The phone number of a client can't be null or empty ");
+        }
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,31 +37,13 @@ public class Client {
         return this.phoneNumber;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void validate(String value, String fieldName){
-        if(value == null || value.isEmpty()){
-            throw new IllegalArgumentException(fieldName + " cannot be empty");
-        }
-    }
-
 
     @Override
     public String toString() {
         return
                 "Client information" + "\n" +
-                "firstName : " + firstName + "\n" +
-                "lastName : " + lastName + "\n" +
-                "phoneNumber : " + phoneNumber + "\n";
+                "firstName : " + this.firstName + "\n" +
+                "lastName : " + this.lastName + "\n" +
+                "phoneNumber : " + this.phoneNumber + "\n";
     }
 }

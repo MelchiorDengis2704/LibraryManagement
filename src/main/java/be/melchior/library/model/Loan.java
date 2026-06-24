@@ -11,7 +11,13 @@ public class Loan {
 
     public Loan(LocalDate taked, Client client, Book book){
         if(taked == null){
-            throw new IllegalArgumentException("A borrow can't have a taked date empty ");
+            throw new IllegalArgumentException("A borrow can't have a empty taked field");
+        }
+        if(client == null){
+            throw new IllegalArgumentException("A borrow can't have a empty client field");
+        }
+        if(book == null){
+            throw new IllegalArgumentException("A borrow can't have a empty book field");
         }
         this.taked = taked;
         this.client = client;
@@ -19,30 +25,30 @@ public class Loan {
     }
 
     public LocalDate getTaked() {
-        return taked;
+        return this.taked;
     }
 
     public LocalDate getReturned() {
-        return returned;
+        return this.returned;
     }
 
     public Client getClient() {
-        return client;
+        return this.client;
     }
 
     public Book getBook() {
-        return book;
+        return this.book;
     }
 
     @Override
     public String toString() {
         return
                 "Loan information" + "\n" +
-                        "Client firstName : " + client.getFirstName() + "\n" +
-                        "Client lastName : " + client.getLastName() + "\n" +
-                        "Client phoneNumber : " + client.getPhoneNumber() + "\n" +
-                        "Book title : " + book.getTitle() + "\n" +
-                        "Book category : " + book.getCategory() + "\n" +
+                        "Client firstName : " + this.client.getFirstName() + "\n" +
+                        "Client lastName : " + this.client.getLastName() + "\n" +
+                        "Client phoneNumber : " + this.client.getPhoneNumber() + "\n" +
+                        "Book title : " + this.book.getTitle() + "\n" +
+                        "Book category : " + this.book.getCategory() + "\n" +
                         "Book date borrowed : " + this.getTaked() + "\n" +
                         "Book date returned : " + this.getReturned() + "\n";
 
